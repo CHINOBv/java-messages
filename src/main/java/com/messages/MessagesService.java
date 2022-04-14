@@ -48,6 +48,7 @@ public class MessagesService {
       System.out.println("Enter the new message");
       message.setMessage(sc.nextLine());
     }
+
     MessagesDAO.updateMessageDB(message);
   }
 
