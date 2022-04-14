@@ -37,17 +37,18 @@ public class MessagesService {
   public static void updateMessage() {
     Scanner sc = new Scanner(System.in);
 
-    System.out.println("Enter the id of the message you want to update");
-    int id = sc.nextInt();
+    Messages message = new Messages();
 
     System.out.println("Enter the new message");
-    String message = sc.nextLine();
+    message.setMessage(sc.nextLine());
+    System.out.println("Enter the id of the message you want to update");
+    message.setId(sc.nextInt());
 
-    if(message.isEmpty()) {
+    if(message.getMessage().isEmpty()) {
       System.out.println("Enter the new message");
-      message = sc.nextLine();
+      message.setMessage(sc.nextLine());
     }
-    MessagesDAO.updateMessageDB(id, message);
+    MessagesDAO.updateMessageDB(message);
   }
 
 }
