@@ -25,14 +25,10 @@ public class Main {
           MessagesService.readMessages();
           break;
         case 3:
-          System.out.println("Enter the id of the message you want to update");
-          int id = sc.nextInt();
-          MessagesService.updateMessage(id, "update");
+          MessagesService.updateMessage();
           break;
         case 4:
-          System.out.println("Enter the id of the message you want to delete");
-          int id2 = sc.nextInt();
-          MessagesService.deleteMessage(id2);
+          MessagesService.deleteMessage();
           break;
         case 5:
           System.out.println("Exit");

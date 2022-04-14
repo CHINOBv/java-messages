@@ -3,7 +3,7 @@ package com.messages;
 import java.util.Scanner;
 
 public class MessagesService {
-  public static void createMessage(){
+  public static void createMessage() {
 
     Scanner sc = new Scanner(System.in);
     System.out.println("Enter the message");
@@ -19,16 +19,35 @@ public class MessagesService {
     MessagesDAO.createMessageDB(register);
   }
 
-  public static void readMessages(){
+  public static void readMessages() {
+    MessagesDAO.readMessagesDB();
+  }
+
+  public static void deleteMessage() {
+
+    Scanner sc = new Scanner(System.in);
+
+    System.out.println("Enter the id of the message");
+    int id = sc.nextInt();
+
+    MessagesDAO.deleteMessageDB(id);
 
   }
 
-  public static void deleteMessage(int id){
+  public static void updateMessage() {
+    Scanner sc = new Scanner(System.in);
 
-  }
+    System.out.println("Enter the id of the message you want to update");
+    int id = sc.nextInt();
 
-  public static void updateMessage(int id, String message){
+    System.out.println("Enter the new message");
+    String message = sc.nextLine();
 
+    if(message.isEmpty()) {
+      System.out.println("Enter the new message");
+      message = sc.nextLine();
+    }
+    MessagesDAO.updateMessageDB(id, message);
   }
 
 }
